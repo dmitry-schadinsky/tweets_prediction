@@ -13,7 +13,7 @@
 
 ## Training procedure
 ### General
-First of all the train and test datasets are prepared. 95% of all data is considered as the train part, while the rest is the test. The raw information is processed and saved in corresponding files for further training. (It is already saved and you can find it [here](./results/data/)) The average values of the input data are calculated so normalized data are considered. Also the cleaning for data is implied. Only tweets which "rectangular" area's "diagonal" is less than 500 km are taken into account. Otherwise such data only confuses our model during training.
+First of all the train and test datasets are prepared. 95% of all data is considered as the train part, while the rest is the test. The raw information is processed and saved in corresponding files for further training. The average values of the input data are calculated so normalized data are considered. Also the cleaning for data is implied. Only tweets which "rectangular" area's "diagonal" is less than 500 km are taken into account. Otherwise such data only confuses our model during training.
 
 After this the training loop starts. Each epoch the statistic is provided, which includes average test error values, percentiles and histograms for test errors. 
 
