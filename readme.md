@@ -17,6 +17,9 @@ First of all the train and test datasets are prepared. 95% of all data is consid
 
 After this the training loop starts. Each epoch the statistic is provided, which includes average test error values, percentiles and histograms for test errors. 
 
+### Debugging
+During implementing the task several debug features were introduced. First of all it is quite easy to consider only specific part of the train and test datasets ([`part_of_train`, `part_of_test` fields](./hparams.py#L22-L23)). Also function [`plot_test`](./helper.py#L234) can be used instead of [`test_all`](./helper.py#L254) for tracking the statistics of one train and one test samples. 
+
 ### Source code files description
 
 - [train.py](./train.py) - the base training script
