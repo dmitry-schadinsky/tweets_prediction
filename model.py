@@ -120,10 +120,13 @@ class Model(nn.Module):
 		w = self.network(txt_padded)				
 		w = w[0]#osize
 		
+		#here we use the mixture von_mises_mixture
 		theta, phi, W, lat, lon = calc_geo_point(w, self, 0)
-		#plot_on_sphere(theta, phi, W, self, file)
+		plot_on_sphere(theta, phi, W, self, file)
+		
+		#here we use the mixture von_mises_mixture_sum
 		theta, phi, W, lat_sum, lon_sum = calc_geo_point(w, self, 1)
-		#plot_on_sphere(theta, phi, W, self, file1)
+		plot_on_sphere(theta, phi, W, self, file1)
 		
 		return lat, lon, lat_sum, lon_sum
 	
