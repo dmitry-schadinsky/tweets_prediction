@@ -6,14 +6,14 @@
  The goal is to create and train a deep learning model which predicts coordinates (latitude, longitude) of individual tweets.
 
 ### Data
- The data consists of csv files where each line contains directly text itself and information about the location of the area (bottom left and top right coordinates of a "rectangular") where the tweet was made. (Data contains tweets from South America)
+The data consists of csv files ([`raw_data_dir`](./hparams.py#L5)) where each line contains directly text itself and information about the location of the area (bottom left and top right coordinates of a "rectangular") where the tweet was made plus some meta data. Data contains tweets from South America. There are approximately 10^7 individual tweets in different languages. 
 
  ### Model
- Here a generative approach is considered. The proposed model takes UTF-8 encoding text as input. The model architecture consists of  a character embedding layer followed by the series of CNN, BN and Pooling layers. As a result N coefficients are obtained which represent the coefficients of decomposition by basis of N von Mises-Fisher PDFs. The parameters of the basis functions are trained as well as layers' parameters.
+Here a generative approach is considered. The proposed model takes UTF-8 encoding text as input. The model architecture consists of  a character embedding layer followed by the series of CNN, BN and Pooling layers. As a result N coefficients are obtained which represent the coefficients of decomposition by basis of N von Mises-Fisher PDFs. The parameters of the basis functions are trained as well as layers' parameters.
 
 ## Training procedure
 ### General
-First of all the train and test datasets are prepared. 95% of all data is considered as the train part, while the rest is the test. The raw information is processed and saved in corresponding files for further training. The average values of the input data are calculated so normalized data are considered. Also the cleaning for data is implied. Only tweets which "rectangular" area's "diagonal" is less than 500 km are taken into account. Otherwise such data only confuses our model during training.
+First of all the train and test datasets are prepared. 95% of all data is considered as the train part, while the rest is the test. The raw information is processed and saved in corresponding files ([`train_dset_file`, `test_dset_file` fields](./hparams.py#L11-L12)) for further training. The average values of the input data are calculated so normalized data are considered. Also the cleaning for data is implied. Only tweets which "rectangular" area's "diagonal" is less than 500 km ([`max_dist` field](./hparams.py#L19)) are taken into account. Otherwise such data only confuses our model during training. For calculating the distsnce between two points on sphere the vincenty inverse formula is used ([here you can find the implementation](./helper.py#L50))
 
 After this the training loop starts. Each epoch the statistic is provided, which includes average test error values, percentiles and histograms for test errors. 
 
