@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 from dataset import Dset, collate, get_txt_geo_point
-from math import atan, atan2, cos, radians, sin, sqrt, tan, sinh, pi
+from math import atan, atan2, cos, radians, sin, sqrt, tan, sinh, pi, degrees
 ################################################################################################################
 #General
 
