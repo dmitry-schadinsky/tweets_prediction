@@ -36,7 +36,7 @@ class Dset(Dataset):
 			param.test_lat = self.data_list[2][1]
 			param.test_lon = self.data_list[2][2]
 		
-		output("Data size : {}".format(len(self.data_list)),self.p.log_file)
+		output("          " + label + " data size : {}".format(len(self.data_list)),self.p.log_file)
 	
 	def __getitem__(self, index):
 		txt, geo_point =  get_txt_geo_point(self.data_list[index], self.p)
