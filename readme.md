@@ -38,3 +38,5 @@ Here, you can see the results of test data errors.
 - Quantile 0.9 = 1648.51 km
 - Quantile 0.75 = 840.65 km
 - Quantile 0.5 = 356.89 km
+
+The trained model can be found [here](https://drive.google.com/file/d/1TSvW1Kgt4LPq-jy54FB1B5jQXr7QtGyK/view?usp=sharing).
