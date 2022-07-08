@@ -3,7 +3,7 @@ class Hparams:
 
 	#paths
 	raw_data_dir = '../raw_data/' 
-	out_res_dir = 'res/'
+	out_res_dir = 'results/'
 	data_dir = out_res_dir + 'data/'
 	ckpt_dir = out_res_dir +'ckpt/'
 	log_file = data_dir + 'data.log'
